@@ -5,7 +5,10 @@ import Modal from "./components/Modal";
 import Toast from "./components/Toast";
 
 function App() {
-  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [isUnlocked, setIsUnlocked] = useState(() => {
+    // Check localStorage on app load
+    return localStorage.getItem("annivAppUnlocked") === "true";
+  });
   const [coupons, setCoupons] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -137,6 +140,8 @@ function App() {
     setIsUnlocked(success);
     if (success) {
       setError("");
+      // Save to localStorage
+      localStorage.setItem("annivAppUnlocked", "true");
     }
   };
 
@@ -268,13 +273,26 @@ function App() {
     setToast(null);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("annivAppUnlocked");
+    setIsUnlocked(false);
+    setCoupons([]);
+  };
+
   const createConfetti = () => {
-    const colors = ["#f8b5c1", "#fce4e8", "#f4a3b2", "#fdf2e9"];
+    const colors = [
+      "#ff6b9d",
+      "#a55eea",
+      "#74b9ff",
+      "#00d4aa",
+      "#fdcb6e",
+      "#ff7675",
+    ];
     const confettiContainer = document.createElement("div");
     confettiContainer.className = "confetti";
     document.body.appendChild(confettiContainer);
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 80; i++) {
       const piece = document.createElement("div");
       piece.className = "confetti-piece";
       piece.style.left = Math.random() * 100 + "%";
@@ -282,6 +300,7 @@ function App() {
         colors[Math.floor(Math.random() * colors.length)];
       piece.style.animationDelay = Math.random() * 3 + "s";
       piece.style.animationDuration = Math.random() * 2 + 2 + "s";
+      piece.style.borderRadius = Math.random() > 0.5 ? "50%" : "0";
       confettiContainer.appendChild(piece);
     }
 
@@ -315,9 +334,18 @@ function App() {
     <div className="app">
       <div className="coupons-container">
         <div className="coupons-header">
-          <h1 className="coupons-title">🎁 Cupons d'aniversari</h1>
+          <div className="header-top">
+            <h1 className="coupons-title">🎁 Cupons d'aniversari</h1>
+            <button
+              className="logout-btn"
+              onClick={handleLogout}
+              title="Tancar sessió"
+            >
+              🚪
+            </button>
+          </div>
           <p className="coupons-subtitle">
-            Tria un cupó i gaudeix-lo quan vulguis
+            Tria un cupó i gaudeix-lo quan vulguis ✨
           </p>
         </div>
 

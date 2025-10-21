@@ -16,6 +16,22 @@ function CouponCard({ coupon, onRedeem }) {
     onRedeem(coupon.id);
   };
 
+  const getCouponEmoji = (couponName) => {
+    const emojis = {
+      "Massatge relaxant": "💆‍♀️",
+      "Sopar especial": "🍽️",
+      "Esmorzar al llit": "🥐",
+      "Pícnic sorpresa": "🧺",
+      "Nit de sushi i vi": "🍣",
+      "Sortida del sol": "🌅",
+      "Escapada espontània": "🎒",
+      "Dia d'improvisació": "🎭",
+      "Tarda de platja o muntanya": "🏖️",
+      "Sessió de jocs": "🎮",
+    };
+    return emojis[couponName] || "🎁";
+  };
+
   const getConditionsText = (couponName) => {
     const conditions = {
       "Massatge relaxant":
@@ -45,8 +61,10 @@ function CouponCard({ coupon, onRedeem }) {
     <>
       <div className={`coupon-card ${coupon.used ? "used" : ""}`}>
         <div className="coupon-header">
-          <h3 className="coupon-title">{coupon.name}</h3>
-          {coupon.used && <span className="coupon-badge">Usat</span>}
+          <h3 className="coupon-title">
+            {getCouponEmoji(coupon.name)} {coupon.name}
+          </h3>
+          {coupon.used && <span className="coupon-badge">✅ Usat</span>}
         </div>
 
         <p className="coupon-description">{coupon.description}</p>
@@ -65,7 +83,7 @@ function CouponCard({ coupon, onRedeem }) {
             onClick={handleRedeemClick}
             disabled={coupon.used}
           >
-            {coupon.used ? "Usat" : "Canvia"}
+            {coupon.used ? "✅ Usat" : "🎁 Canvia"}
           </button>
         </div>
       </div>
@@ -116,4 +134,3 @@ function CouponCard({ coupon, onRedeem }) {
 }
 
 export default CouponCard;
-
