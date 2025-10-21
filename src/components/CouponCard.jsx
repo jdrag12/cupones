@@ -16,29 +16,11 @@ function CouponCard({ coupon, onRedeem }) {
     setShowRedeemModal(false);
   };
 
-  const getCouponEmoji = (couponName) => {
-    const emojis = {
-      "Massatge relaxant": "💆‍♀️",
-      "Sopar especial": "🍽️",
-      "Esmorzar al llit": "🥐",
-      "Pícnic sorpresa": "🧺",
-      "Nit de sushi i vi": "🍣",
-      "Sortida del sol": "🌅",
-      "Escapada espontània": "🎒",
-      "Dia d'improvisació": "🎭",
-      "Tarda de platja o muntanya": "🏖️",
-      "Sessió de jocs": "🎮",
-    };
-    return emojis[couponName] || "🎁";
-  };
-
   return (
     <>
       <div className={`coupon-card ${coupon.used ? "used" : ""}`}>
         <div className="coupon-header">
-          <h3 className="coupon-title">
-            {getCouponEmoji(coupon.name)} {coupon.name}
-          </h3>
+          <h3 className="coupon-title">{coupon.name}</h3>
           {coupon.used && <span className="coupon-badge">Usat</span>}
         </div>
 
