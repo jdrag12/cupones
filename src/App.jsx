@@ -335,7 +335,7 @@ function App() {
       <div className="coupons-container">
         <div className="coupons-header">
           <div className="header-top">
-            <h1 className="coupons-title">🎁 Cupons d'aniversari</h1>
+            <h1 className="coupons-title">🎁 Cupons d'aniversari TUXI</h1>
             <button
               className="logout-btn"
               onClick={handleLogout}
