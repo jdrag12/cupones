@@ -85,7 +85,7 @@ function CouponCard({ coupon, onRedeem }) {
             onClick={handleRedeemClick}
             disabled={coupon.used}
           >
-            {coupon.used ? "Usat" : "Canvia"}
+            {coupon.used ? "Usat" : "Bescanvia"}
           </button>
         </div>
       </div>
@@ -112,7 +112,7 @@ function CouponCard({ coupon, onRedeem }) {
               </p>
               <p>{getConditionsText(coupon.name)}</p>
               <br />
-              <p>Estàs segur que vols canviar aquest cupó?</p>
+              <p>Estàs segur que vols bescanviar aquest cupó?</p>
             </div>
           )}
 

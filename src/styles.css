@@ -308,15 +308,11 @@ h3 {
 }
 
 .coupons-title {
-  color: var(--tuxi-ink);
+  color: var(--tuxi-pink-600);
   margin: 0;
   font-size: 2.25rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--tuxi-pink-500), var(--tuxi-lilac-500));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   position: relative;
 }
 
@@ -365,6 +361,9 @@ h3 {
   border: 1px solid var(--tuxi-pink-100);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 .coupon-card::before {
@@ -396,34 +395,22 @@ h3 {
 
 .coupon-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 1.5rem;
   position: relative;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .coupon-title {
-  color: var(--tuxi-ink);
+  color: var(--tuxi-pink-600);
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
-  flex: 1;
   font-family: 'Poppins', sans-serif;
   position: relative;
-  background: linear-gradient(135deg, var(--tuxi-pink-500), var(--tuxi-lilac-500));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.coupon-title::before {
-  content: '✨';
-  position: absolute;
-  left: -1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1rem;
-  animation: sparklePulse 2.4s infinite ease-in-out;
+  text-align: center;
 }
 
 .coupon-badge {
@@ -456,23 +443,25 @@ h3 {
   color: var(--text-muted);
   margin-bottom: 1.5rem;
   line-height: 1.5;
+  text-align: center;
 }
 
 .coupon-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
+  flex-direction: row;
 }
 
 .conditions-link {
   background: white;
   color: var(--tuxi-ink);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--radius);
   transition: all 0.15s ease;
   font-family: 'Inter', sans-serif;
@@ -480,7 +469,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  min-height: 32px;
+  min-height: 40px;
 }
 
 .conditions-link:hover {
@@ -509,20 +498,24 @@ h3 {
   justify-content: center;
   z-index: 1000;
   padding: 1rem;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .modal {
-  background: var(--card);
+  background: #ffffff;
   border-radius: var(--radius-2xl);
   padding: 2rem;
   max-width: 500px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
+  overflow-x: hidden;
   box-shadow: var(--shadow-lg);
   animation: modalSlideIn 0.22s ease-out;
   position: relative;
   border: 1px solid var(--tuxi-pink-100);
+  box-sizing: border-box;
 }
 
 .modal::before {
@@ -553,38 +546,29 @@ h3 {
 }
 
 .modal-title {
-  color: var(--tuxi-ink);
+  color: var(--tuxi-pink-600);
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  background: linear-gradient(135deg, var(--tuxi-pink-500), var(--tuxi-lilac-500));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
-.modal-content {
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  font-size: 0.95rem;
-  background: var(--tuxi-pink-50);
-  padding: 1.25rem;
-  border-radius: var(--radius-lg);
-  border-left: 3px solid var(--tuxi-pink-300);
-}
-
-/* Modal content without wrapper */
+/* Modal content - Uniform background */
+.modal-content,
 .modal > div:not(.modal-header):not(.modal-actions) {
-  color: var(--text-muted);
-  margin-bottom: 2rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
   line-height: 1.6;
   font-size: 0.95rem;
-  background: var(--tuxi-pink-50);
-  padding: 1.25rem;
-  border-radius: var(--radius-lg);
-  border-left: 3px solid var(--tuxi-pink-300);
+  background: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+/* Form container in modal */
+.modal form {
+  margin-bottom: 1.5rem;
 }
 
 .modal-actions {

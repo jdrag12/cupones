@@ -223,7 +223,7 @@ function App() {
       }
 
       if (!response.ok) {
-        throw new Error(data.error || "Error canviant el cupó");
+        throw new Error(data.error || "Error bescanviant el cupó");
       }
 
       // Update local state
