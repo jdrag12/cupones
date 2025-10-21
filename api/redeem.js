@@ -44,7 +44,7 @@ async function sendEmail(couponName, timestamp) {
           <div style="background: white; padding: 20px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
             <h2 style="color: #2d3748; margin-bottom: 15px;">${couponName}</h2>
             <p style="color: #718096; margin-bottom: 10px;"><strong>Data i hora:</strong> ${formattedDate}</p>
-            <p style="color: #718096; margin-bottom: 10px;"><strong>Canjeat per:</strong> AnnivApp</p>
+            <p style="color: #718096; margin-bottom: 10px;"><strong>Canjeat per:</strong> Tuxi</p>
             <p style="color: #718096; font-size: 14px; margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
               Aquest cupó ha estat canjeat des de l'aplicació d'aniversari.
             </p>
@@ -83,7 +83,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { id } = req.body;
+    const { id, customDateTime } = req.body;
 
     if (!id) {
       return res.status(400).json({ error: "Missing coupon ID" });
@@ -123,7 +123,7 @@ export default async function handler(req, res) {
     }
 
     // Update the coupon to mark it as used
-    const now = new Date().toISOString();
+    const now = customDateTime || new Date().toISOString();
     const rowNumber = couponIndex + 2; // +2 because we skip header and arrays are 0-indexed
 
     await sheets.spreadsheets.values.update({
@@ -131,7 +131,7 @@ export default async function handler(req, res) {
       range: `coupons!D${rowNumber}:F${rowNumber}`,
       valueInputOption: "RAW",
       requestBody: {
-        values: [[true, now, "AnnivApp"]],
+        values: [[true, now, "Tuxi"]],
       },
     });
 
@@ -145,7 +145,7 @@ export default async function handler(req, res) {
       description: couponRow[2] || "",
       used: true,
       used_at: now,
-      redeemed_by: "AnnivApp",
+      redeemed_by: "Tuxi",
     };
 
     return res.status(200).json(updatedCoupon);

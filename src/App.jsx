@@ -145,7 +145,7 @@ function App() {
     }
   };
 
-  const handleRedeem = async (couponId) => {
+  const handleRedeem = async (couponId, customDateTime = null) => {
     try {
       // For development: simulate API call
       const isDevelopment = import.meta.env.DEV;
@@ -165,7 +165,7 @@ function App() {
         }
 
         // Simulate successful redeem
-        const now = new Date().toISOString();
+        const now = customDateTime || new Date().toISOString();
         const formattedDate = new Intl.DateTimeFormat("ca-ES", {
           year: "numeric",
           month: "long",
@@ -183,7 +183,7 @@ function App() {
                   ...c,
                   used: true,
                   used_at: now,
-                  redeemed_by: "AnnivApp",
+                  redeemed_by: "Tuxi",
                 }
               : c
           )

@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
+import RedeemModal from "./RedeemModal";
 
 function CouponCard({ coupon, onRedeem }) {
   const [showModal, setShowModal] = useState(false);
+  const [showRedeemModal, setShowRedeemModal] = useState(false);
 
   const handleRedeemClick = () => {
     if (coupon.used) {
       return;
     }
-    setShowModal(true);
+    setShowRedeemModal(true);
   };
 
-  const handleConfirmRedeem = () => {
-    setShowModal(false);
-    onRedeem(coupon.id);
+  const handleRedeemConfirm = (dateTime) => {
+    onRedeem(coupon.id, dateTime);
+    setShowRedeemModal(false);
   };
 
   const getCouponEmoji = (couponName) => {
@@ -64,7 +66,7 @@ function CouponCard({ coupon, onRedeem }) {
           <h3 className="coupon-title">
             {getCouponEmoji(coupon.name)} {coupon.name}
           </h3>
-          {coupon.used && <span className="coupon-badge">✅ Usat</span>}
+          {coupon.used && <span className="coupon-badge">Usat</span>}
         </div>
 
         <p className="coupon-description">{coupon.description}</p>
@@ -83,7 +85,7 @@ function CouponCard({ coupon, onRedeem }) {
             onClick={handleRedeemClick}
             disabled={coupon.used}
           >
-            {coupon.used ? "✅ Usat" : "🎁 Canvia"}
+            {coupon.used ? "Usat" : "Canvia"}
           </button>
         </div>
       </div>
@@ -122,12 +124,24 @@ function CouponCard({ coupon, onRedeem }) {
               Cancel·lar
             </button>
             {!coupon.used && (
-              <button className="btn btn-primary" onClick={handleConfirmRedeem}>
-                Sí, canvia-ho
+              <button
+                className="btn btn-primary"
+                onClick={() => setShowModal(false)}
+              >
+                Tancar
               </button>
             )}
           </div>
         </Modal>
+      )}
+
+      {showRedeemModal && (
+        <RedeemModal
+          isOpen={showRedeemModal}
+          onClose={() => setShowRedeemModal(false)}
+          onConfirm={handleRedeemConfirm}
+          couponName={coupon.name}
+        />
       )}
     </>
   );

@@ -7,6 +7,8 @@
   --tuxi-pink-300: #ffb7db;
   --tuxi-pink-400: #ff94c9;
   --tuxi-pink-500: #ff72b7;
+  --tuxi-pink-600: #e91e63;
+  --tuxi-pink-700: #c2185b;
   
   /* Tuxi Lilac Palette */
   --tuxi-lilac-50: #f9f6ff;
@@ -168,80 +170,105 @@ h3 {
   font-weight: 500;
 }
 
-/* Tuxi Button Styles */
+/* Minimalist Button System */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.25rem;
-  border: 1px solid var(--tuxi-pink-500);
-  border-radius: var(--radius-pill);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   font-size: 0.875rem;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: all 0.15s ease;
   text-decoration: none;
-  min-height: 44px;
-  background: var(--tuxi-pink-500);
-  color: white;
-  box-shadow: var(--shadow-glow);
+  min-height: 40px;
+  background: white;
+  color: var(--tuxi-ink);
   position: relative;
-  overflow: hidden;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+  white-space: nowrap;
 }
 
 .btn:hover:not(:disabled) {
-  transform: translateY(-1px) scale(1.01);
-  background: var(--tuxi-pink-400);
-  border-color: var(--tuxi-pink-400);
-  box-shadow: 0 10px 28px rgba(255, 114, 183, 0.35);
-}
-
-.btn:hover:not(:disabled)::before {
-  left: 100%;
+  background: var(--tuxi-pink-50);
+  border-color: var(--tuxi-pink-300);
+  color: var(--tuxi-pink-600);
 }
 
 .btn:active:not(:disabled) {
-  transform: translateY(0) scale(0.99);
+  transform: translateY(1px);
+  background: var(--tuxi-pink-100);
 }
 
 .btn:disabled {
-  background: var(--text-light);
-  border-color: var(--text-light);
+  background: var(--bg-secondary);
+  border-color: var(--border);
+  color: var(--text-light);
   cursor: not-allowed;
   transform: none;
-  box-shadow: none;
 }
 
+/* Primary Button */
+.btn-primary {
+  background: var(--tuxi-ink);
+  color: white;
+  border-color: var(--tuxi-ink);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--tuxi-pink-600);
+  border-color: var(--tuxi-pink-600);
+  color: white;
+}
+
+.btn-primary:active:not(:disabled) {
+  background: var(--tuxi-pink-700);
+  border-color: var(--tuxi-pink-700);
+}
+
+/* Secondary Button */
 .btn-secondary {
   background: white;
-  color: var(--tuxi-pink-500);
-  border-color: var(--tuxi-pink-500);
-  box-shadow: 0 2px 8px rgba(255, 114, 183, 0.15);
+  color: var(--tuxi-ink);
+  border-color: var(--border);
 }
 
 .btn-secondary:hover:not(:disabled) {
   background: var(--tuxi-pink-50);
-  color: var(--tuxi-pink-400);
-  border-color: var(--tuxi-pink-400);
-  transform: translateY(-1px) scale(1.01);
+  border-color: var(--tuxi-pink-300);
+  color: var(--tuxi-pink-600);
+}
+
+/* Small Button */
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  min-height: 32px;
+}
+
+/* Large Button */
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  min-height: 48px;
 }
 
 /* Focus states for accessibility */
 .btn:focus-visible {
   outline: 2px solid var(--tuxi-lilac-400);
   outline-offset: 3px;
+}
+
+/* Form Labels */
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--tuxi-ink);
+  margin-bottom: 0.5rem;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Coupons Grid */
@@ -294,24 +321,24 @@ h3 {
 }
 
 .logout-btn {
-  background: var(--tuxi-lilac-400);
-  border: none;
+  background: white;
+  border: 1px solid var(--border);
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 1.25rem;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.18s ease;
-  box-shadow: 0 2px 8px rgba(197, 170, 255, 0.3);
+  transition: all 0.15s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--tuxi-ink);
 }
 
 .logout-btn:hover {
-  transform: scale(1.05);
-  background: var(--tuxi-lilac-500);
-  box-shadow: 0 4px 12px rgba(197, 170, 255, 0.4);
+  background: var(--tuxi-pink-50);
+  border-color: var(--tuxi-pink-300);
+  color: var(--tuxi-pink-600);
 }
 
 .coupons-subtitle {
@@ -400,23 +427,24 @@ h3 {
 }
 
 .coupon-badge {
-  background: var(--tuxi-lilac-400);
-  color: white;
-  padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-pill);
+  background: var(--tuxi-pink-100);
+  color: var(--tuxi-pink-700);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
   font-size: 0.75rem;
   font-weight: 500;
   margin-left: 0.5rem;
   white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(197, 170, 255, 0.3);
+  border: 1px solid var(--tuxi-pink-200);
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
 }
 
 .coupon-badge::before {
-  content: 'Tuxi ♥';
+  content: '✓';
   font-size: 0.7rem;
+  font-weight: 600;
 }
 
 @keyframes sparklePulse {
@@ -438,29 +466,28 @@ h3 {
 }
 
 .conditions-link {
-  background: var(--tuxi-lilac-400);
-  color: white;
+  background: white;
+  color: var(--tuxi-ink);
   text-decoration: none;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--radius-pill);
-  transition: all 0.18s ease;
-  box-shadow: 0 2px 8px rgba(197, 170, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: all 0.15s ease;
   font-family: 'Inter', sans-serif;
-  border: none;
+  border: 1px solid var(--border);
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
+  min-height: 32px;
 }
 
 .conditions-link:hover {
-  transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 4px 12px rgba(197, 170, 255, 0.4);
+  background: var(--tuxi-pink-50);
+  border-color: var(--tuxi-pink-300);
+  color: var(--tuxi-pink-600);
   text-decoration: none;
-  color: white;
-  background: var(--tuxi-lilac-500);
 }
 
 .conditions-link::before {

@@ -51,6 +51,12 @@ function UnlockForm({ onUnlock }) {
   const handleInputChange = (e) => {
     let value = e.target.value;
 
+    // Allow empty input
+    if (value === "") {
+      setBirthday("");
+      return;
+    }
+
     // Auto-format DD/MM/YYYY as user types
     value = value.replace(/\D/g, ""); // Remove non-digits
 
@@ -65,9 +71,9 @@ function UnlockForm({ onUnlock }) {
   };
 
   const handleKeyDown = (e) => {
-    // Allow backspace, delete, arrow keys, and tab
+    // Allow backspace, delete, arrow keys, tab, slash, and home/end
     if (
-      [8, 9, 27, 46, 37, 38, 39, 40].indexOf(e.keyCode) !== -1 ||
+      [8, 9, 27, 46, 37, 38, 39, 40, 35, 36, 191].indexOf(e.keyCode) !== -1 ||
       // Allow Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
       (e.keyCode === 65 && e.ctrlKey === true) ||
       (e.keyCode === 67 && e.ctrlKey === true) ||
