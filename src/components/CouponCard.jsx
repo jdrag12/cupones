@@ -81,11 +81,11 @@ function CouponCard({ coupon, onRedeem }) {
           </button>
 
           <button
-            className={`btn ${coupon.used ? "btn-secondary" : "btn-primary"}`}
+            className="btn btn-primary"
             onClick={handleRedeemClick}
             disabled={coupon.used}
           >
-            {coupon.used ? "Usat" : "Bescanvia"}
+            Bescanvia
           </button>
         </div>
       </div>
