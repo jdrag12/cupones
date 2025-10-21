@@ -33,7 +33,7 @@ async function sendEmail(couponName, timestamp) {
     }).format(new Date(timestamp));
 
     const emailData = {
-      from: "AnnivApp <noreply@annivapp.com>",
+      from: "onboarding@resend.dev",
       to: ["jdrago10@gmail.com"],
       subject: `Cupó canjeat: ${couponName}`,
       html: `
