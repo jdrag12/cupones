@@ -33,11 +33,10 @@ function Modal({ title, children, onClose }) {
         <div className="modal-header">
           <h2 className="modal-title">{title}</h2>
         </div>
-        <div className="modal-content">{children}</div>
+        {children}
       </div>
     </div>
   );
 }
 
 export default Modal;
-

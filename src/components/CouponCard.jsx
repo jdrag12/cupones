@@ -117,12 +117,6 @@ function CouponCard({ coupon, onRedeem }) {
           )}
 
           <div className="modal-actions">
-            <button
-              className="btn btn-secondary"
-              onClick={() => setShowModal(false)}
-            >
-              Cancel·lar
-            </button>
             {!coupon.used && (
               <button
                 className="btn btn-primary"
