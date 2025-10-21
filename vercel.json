@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "api/*.mjs": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "rewrites": [
     {
       "source": "/(.*)",
