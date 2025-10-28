@@ -282,7 +282,7 @@ Modifica les variables CSS a `src/styles.css`:
 
 ### Error: "already_used"
 
-- El cupó ja ha estat canjeat anteriorment
+- El cupó ja ha estat bescanviat anteriorment
 - Aquest és un comportament esperat per evitar duplicats
 
 ### Problemes amb Google Sheets
@@ -294,4 +294,3 @@ Modifica les variables CSS a `src/styles.css`:
 ## Llicència
 
 Aquest projecte està sota la llicència MIT.
-

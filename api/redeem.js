@@ -35,18 +35,18 @@ async function sendEmail(couponName, timestamp) {
     const emailData = {
       from: "onboarding@resend.dev",
       to: ["jdrago10@gmail.com"],
-      subject: `Cupó canjeat: ${couponName}`,
+      subject: `Cupó bescanviat: ${couponName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #fef7f0;">
           <div style="background: #f8b5c1; padding: 20px; border-radius: 16px; text-align: center; margin-bottom: 20px;">
-            <h1 style="color: white; margin: 0; font-size: 24px;">🎁 Cupó Canjeat</h1>
+            <h1 style="color: white; margin: 0; font-size: 24px;">🎁 Cupó bescanviat</h1>
           </div>
           <div style="background: white; padding: 20px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
             <h2 style="color: #2d3748; margin-bottom: 15px;">${couponName}</h2>
             <p style="color: #718096; margin-bottom: 10px;"><strong>Data i hora:</strong> ${formattedDate}</p>
-            <p style="color: #718096; margin-bottom: 10px;"><strong>Canjeat per:</strong> Tuxi</p>
+            <p style="color: #718096; margin-bottom: 10px;"><strong>bescanviat per:</strong> Tuxi</p>
             <p style="color: #718096; font-size: 14px; margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
-              Aquest cupó ha estat canjeat des de l'aplicació d'aniversari.
+              Aquest cupó ha estat bescanviat des de l'aplicació d'aniversari.
             </p>
           </div>
         </div>

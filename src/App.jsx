@@ -159,7 +159,7 @@ function App() {
           setToast({
             type: "error",
             title: "Cupó ja utilitzat",
-            message: "Aquest cupó ja ha estat canjeat.",
+            message: "Aquest cupó ja ha estat bescanviat.",
           });
           return;
         }
@@ -192,8 +192,8 @@ function App() {
         // Show success toast
         setToast({
           type: "success",
-          title: "S'ha canjeat el cupó ✅",
-          message: `Has canjeat «${coupon.name}» el ${formattedDate}.`,
+          title: "S'ha bescanviat el cupó ✅",
+          message: `Has bescanviat «${coupon.name}» el ${formattedDate}.`,
         });
 
         // Show confetti
@@ -217,7 +217,7 @@ function App() {
         setToast({
           type: "error",
           title: "Cupó ja utilitzat",
-          message: "Aquest cupó ja ha estat canjeat.",
+          message: "Aquest cupó ja ha estat bescanviat.",
         });
         return;
       }
@@ -252,8 +252,8 @@ function App() {
 
       setToast({
         type: "success",
-        title: "S'ha canjeat el cupó ✅",
-        message: `Has canjeat «${data.name}» el ${formattedDate}.`,
+        title: "S'ha bescanviat el cupó ✅",
+        message: `Has bescanviat «${data.name}» el ${formattedDate}.`,
       });
 
       // Show confetti
